@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Authorisation\Authorisation.csproj" />
+    <ProjectReference Include="..\WeatherApp.Presentation\WeatherApp.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>
