@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "8ba2fcb1-4820-4391-ac91-a6914f670a91",
+		"name": "Weather API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28193579"
+	},
+	"item": [
+		{
+			"name": "200 OK",
+			"item": [
+				{
+					"name": "weather",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is 200 OK\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/weather?country=australia&apikey=9f702dcad7254441823f87e171d0e9fd&city=melbourne",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "australia"
+								},
+								{
+									"key": "apikey",
+									"value": "9f702dcad7254441823f87e171d0e9fd"
+								},
+								{
+									"key": "city",
+									"value": "melbourne"
+								}
+							]
+						},
+						"description": "Gets weather description when Country, City and API Key are provided"
+					},
+					"response": []
+				}
+			],
+			"description": "Collection of requests returning 200 OK response"
+		},
+		{
+			"name": "400 Bad Request",
+			"item": [
+				{
+					"name": "weather - country missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is 400 when country is missing\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/weather?apikey=9f702dcad7254441823f87e171d0e9fd&city=melbourne",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "9f702dcad7254441823f87e171d0e9fd"
+								},
+								{
+									"key": "city",
+									"value": "melbourne"
+								}
+							]
+						},
+						"description": "A malformed request with Country query parameter not provided"
+					},
+					"response": []
+				},
+				{
+					"name": "weather - city missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is 400 when city is missing\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/weather?country=australia&apikey=9f702dcad7254441823f87e171d0e9fd",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "australia"
+								},
+								{
+									"key": "apikey",
+									"value": "9f702dcad7254441823f87e171d0e9fd"
+								}
+							]
+						},
+						"description": "A malformed request with City query parameter not provided"
+					},
+					"response": []
+				},
+				{
+					"name": "weather - apikey missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is 400 when apikey is missing\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/weather?country=australia&city=melbourne",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "australia"
+								},
+								{
+									"key": "city",
+									"value": "melbourne"
+								}
+							]
+						},
+						"description": "A malformed request with ApiKey query parameter not provided"
+					},
+					"response": []
+				}
+			],
+			"description": "Collection of requests returning 400 Bad Request response"
+		},
+		{
+			"name": "401 Unauthorized",
+			"item": [
+				{
+					"name": "weather",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is 401 when apikey is incorrect\", function(){\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/weather?country=australia&apikey=6604187f049e44cba7de20e23e58adac&city=melbourne",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "australia"
+								},
+								{
+									"key": "apikey",
+									"value": "6604187f049e44cba7de20e23e58adac"
+								},
+								{
+									"key": "city",
+									"value": "melbourne"
+								}
+							]
+						},
+						"description": "Request with incorrect ApiKey provided"
+					},
+					"response": []
+				}
+			],
+			"description": "Collection of requests returning 401 Unauthorized response"
+		}
+	]
+}
