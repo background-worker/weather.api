@@ -2,9 +2,11 @@
 ## Introduction
 This is a wrapper over the **OpenWeather API**. It requires *Country, City and an Api Key* to query the OpenWeather API and returns *weather description* such as sunny, broken clouds etc. as a response.
 ### Build & Run
-This is a Visual Studio Solution. Please clone this repository and build and run the solution in Visual Studio. The APIs could be accessed using tools like Postman. 
+This is a WebApi built with .Net 7 using Visual Studio. Please clone this repository and build and run the solution in Visual Studio. The APIs could be accessed using tools like Postman. 
 
-The solution has been set to run on https://localhost:5001. Postman requests also have the same hardcoded URL. In case this is changed, URL in Postman will have to be changed as well.
+The solution has been set to listen on https://localhost:5001. Postman requests also have the same hardcoded URL. In case this is changed, URL in Postman will have to be changed as well.
+
+An example of a valid request would be https://localhost:5001/api/weather?country=australi&apikey=validapikey&city=melbourne
 ### Test
 The repository contains a **Postman collection** with requests and a Test collection that can be used to test the solution.
 ### Working

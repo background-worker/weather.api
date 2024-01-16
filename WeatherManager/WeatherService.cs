@@ -38,7 +38,7 @@ namespace WeatherManager
             if (string.IsNullOrWhiteSpace(description))
                 ErrorHandler.ResolveError(HttpStatusCode.NotFound);
 
-            return description;
+            return JsonConvert.SerializeObject(description);
         }
 
         private string GetQueryUrl(string country, string city)
